@@ -33,10 +33,32 @@ const fullyReact = (text: string): string => {
     return text
 }
 
-
 console.time("Time Taken")
 console.log(text.length)
-console.log(fullyReact(text).length)
+
+const map: Record<string, true> = {};
+
+for (let i = 0; i < text.length; ++i) {
+    const upper = text[i].toUpperCase();
+    map[upper] = true;
+}
+
+const lettersAvailable = Object.keys(map);
+
+let leastLength = text.length;
+
+for (let i = 0; i < lettersAvailable.length; ++i) {
+    const letter = lettersAvailable[i];
+    const replacedText = text.replaceAll(letter, "").replaceAll(String.fromCharCode(letter.charCodeAt(0) + 32), "");
+
+
+    const fullyReactedText = fullyReact(replacedText);
+    if (leastLength > fullyReactedText.length) leastLength = fullyReactedText.length;
+
+    // console.log('For letter ' + letter + ": " + fullyReactedText.length);
+}
+
+console.log(leastLength);
 console.timeEnd("Time Taken")
 
 
