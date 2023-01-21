@@ -16,7 +16,8 @@ const doReact = (unitA: string, unitB: string): boolean => {
 console.log(text.length)
 let start = 0
 
-console.time("Alpha")
+console.time("Time Taken")
+
 while (true) {
 
     let did_react = false
@@ -34,7 +35,7 @@ while (true) {
     if (!did_react) break;
 }
 
-console.timeEnd("Alpha")
+console.timeEnd("Time Taken")
 console.log(text.length)
 
 
