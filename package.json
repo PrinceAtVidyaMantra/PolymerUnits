@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx tsc && rm -rf out.csv && node ./build/index.js"
+    "test": "npx tsc && node ./build/index.js",
+    "build": "npx tsc",
+    "run2": "node ./build/index2.js",
+    "test2": "npx tsc && node ./build/index2.js"
   },
   "author": "",
   "license": "ISC",
